@@ -1,0 +1,16 @@
+﻿  Logger.cpp
+  Mat3.cpp
+  Mat4.cpp
+C:\Users\16034\Documents\Graphics\LilEngine\MathLib\src\Mat4.cpp(52,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\16034\Documents\Graphics\LilEngine\MathLib\src\Mat4.cpp(52,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\16034\Documents\Graphics\LilEngine\MathLib\src\Mat4.cpp(58,35): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+C:\Users\16034\Documents\Graphics\LilEngine\MathLib\src\Mat4.cpp(66,25): warning C4244: 'argument': conversion from 'double' to 'float', possible loss of data
+C:\Users\16034\Documents\Graphics\LilEngine\MathLib\src\Mat4.cpp(66,10): warning C4244: 'initializing': conversion from 'double' to 'float', possible loss of data
+C:\Users\16034\Documents\Graphics\LilEngine\MathLib\src\Mat4.cpp(72,31): warning C4244: 'argument': conversion from 'double' to 'const float', possible loss of data
+  Quaternion.cpp
+  Vec2.cpp
+  Vec3.cpp
+  Vec4.cpp
+  Generating Code...
+LINK : warning LNK4098: defaultlib 'MSVCRT' conflicts with use of other libs; use /NODEFAULTLIB:library
+  LilEngine.vcxproj -> C:\Users\16034\Documents\Graphics\LilEngine\Debug\LilEngine.exe
