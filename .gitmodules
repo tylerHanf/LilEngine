@@ -1,0 +1,3 @@
+[submodule "MathLib"]
+	path = MathLib
+	url = https://github.com/tylerHanf/MathLib.git
