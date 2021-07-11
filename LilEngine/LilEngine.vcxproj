@@ -143,7 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Importer\OBJ_Importer.cpp" />
+    <ClCompile Include="..\Importer\src\OBJ_Importer.cpp" />
     <ClCompile Include="..\Logger\src\Logger.cpp" />
     <ClCompile Include="..\MathLib\src\Mat3.cpp" />
     <ClCompile Include="..\MathLib\src\Mat4.cpp" />

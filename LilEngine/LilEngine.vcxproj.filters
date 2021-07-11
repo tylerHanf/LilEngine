@@ -26,10 +26,10 @@
       <UniqueIdentifier>{cd6d0504-4171-4555-a3a6-776c33b021d1}</UniqueIdentifier>
     </Filter>
     <Filter Include="Importer">
-      <UniqueIdentifier>{fd61b060-f105-4de9-87ac-07a3fca057a9}</UniqueIdentifier>
+      <UniqueIdentifier>{d8b4a5af-c371-4d2e-8382-aaa3ea434983}</UniqueIdentifier>
     </Filter>
     <Filter Include="Importer\include">
-      <UniqueIdentifier>{021482c2-a5be-45b7-ba31-18bed85d03f1}</UniqueIdentifier>
+      <UniqueIdentifier>{0d2d17f2-dfcd-4fe4-a529-cf1a867b6cee}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -57,7 +57,7 @@
     <ClCompile Include="..\MathLib\src\Vec4.cpp">
       <Filter>MathLib</Filter>
     </ClCompile>
-    <ClCompile Include="..\Importer\OBJ_Importer.cpp">
+    <ClCompile Include="..\Importer\src\OBJ_Importer.cpp">
       <Filter>Importer</Filter>
     </ClCompile>
   </ItemGroup>
