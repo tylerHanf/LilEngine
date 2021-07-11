@@ -72,11 +72,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)ExternalLibs\GLFW\include\;$(SolutionDir)ExternalLibs\GLEW\include\;$(SolutionDir)MathLib\include\;$(SolutionDir)Logger\include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)ExternalLibs\GLFW\include\;$(SolutionDir)ExternalLibs\GLEW\include\;$(SolutionDir)MathLib\include\;$(SolutionDir)Logger\include\;$(SolutionDir)Importer\include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)ExternalLibs\GLFW\include\;$(SolutionDir)ExternalLibs\GLEW\include\;$(SolutionDir)MathLib\include\;$(SolutionDir)Logger\include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)ExternalLibs\GLFW\include\;$(SolutionDir)ExternalLibs\GLEW\include\;$(SolutionDir)MathLib\include\;$(SolutionDir)Logger\include\;$(SolutionDir)Importer\include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -143,6 +143,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="..\Importer\OBJ_Importer.cpp" />
     <ClCompile Include="..\Logger\src\Logger.cpp" />
     <ClCompile Include="..\MathLib\src\Mat3.cpp" />
     <ClCompile Include="..\MathLib\src\Mat4.cpp" />
@@ -153,6 +154,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Importer\include\OBJ_Importer.h" />
     <ClInclude Include="..\Logger\include\Logger.h" />
     <ClInclude Include="..\MathLib\include\Mat3.h" />
     <ClInclude Include="..\MathLib\include\Mat4.h" />

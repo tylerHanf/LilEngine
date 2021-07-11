@@ -4,3 +4,6 @@
 [submodule "Logger"]
 	path = Logger
 	url = https://github.com/tylerHanf/Logger.git
+[submodule "Importer"]
+	path = Importer
+	url = https://github.com/tylerHanf/Importer.git

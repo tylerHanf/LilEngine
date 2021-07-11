@@ -3,9 +3,13 @@
 
 #include <iostream>
 #include "Logger.h"
+#include "OBJ_Importer.h"
 
 int main() {
 	Logger::InitLog("test.log");
+	OBJ_Importer Importer = OBJ_Importer("../../ObjModels/");
+	Importer.loadOBJ("test.obj");
+
 
 	if (!glfwInit()) {
 		std::cout << "Failed to init GLFW\n";
