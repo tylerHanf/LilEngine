@@ -7,9 +7,8 @@
 
 int main() {
 	Logger::InitLog("test.log");
-	OBJ_Importer Importer = OBJ_Importer("../../ObjModels/");
-	Importer.loadOBJ("test.obj");
-
+	Importer::OBJ_Importer Importer = Importer::OBJ_Importer("../../ObjModels/", "../../ObjModels/");
+	Importer.ReadFile("test_texture.obj");
 
 	if (!glfwInit()) {
 		std::cout << "Failed to init GLFW\n";
@@ -19,7 +18,7 @@ int main() {
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
 	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
 
-	GLFWwindow* window = glfwCreateWindow(400, 400, "Hello Window!", NULL, NULL);
+	GLFWwindow* window = glfwCreateWindow(400, 400, "Main", NULL, NULL);
 
 	if (!window) {
 		std::cout << "Failed to make window\n";

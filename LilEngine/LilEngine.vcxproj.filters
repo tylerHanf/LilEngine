@@ -31,6 +31,9 @@
     <Filter Include="Importer\include">
       <UniqueIdentifier>{0d2d17f2-dfcd-4fe4-a529-cf1a867b6cee}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Logger\external">
+      <UniqueIdentifier>{91ad0acf-eaed-49e3-87c3-661206f614de}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -85,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="..\Importer\include\OBJ_Importer.h">
       <Filter>Importer\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\Importer\external\stb\stb_image.h">
+      <Filter>Logger\external</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

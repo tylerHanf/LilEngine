@@ -72,11 +72,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)ExternalLibs\GLFW\include\;$(SolutionDir)ExternalLibs\GLEW\include\;$(SolutionDir)MathLib\include\;$(SolutionDir)Logger\include\;$(SolutionDir)Importer\include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)ExternalLibs\GLFW\include\;$(SolutionDir)ExternalLibs\GLEW\include\;$(SolutionDir)MathLib\include\;$(SolutionDir)Logger\include\;$(SolutionDir)Importer\include\;$(SolutionDir)Importer\external\stb\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)ExternalLibs\GLFW\include\;$(SolutionDir)ExternalLibs\GLEW\include\;$(SolutionDir)MathLib\include\;$(SolutionDir)Logger\include\;$(SolutionDir)Importer\include\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)ExternalLibs\GLFW\include\;$(SolutionDir)ExternalLibs\GLEW\include\;$(SolutionDir)MathLib\include\;$(SolutionDir)Logger\include\;$(SolutionDir)Importer\include\;$(SolutionDir)Importer\external\stb\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -154,6 +154,7 @@
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\Importer\external\stb\stb_image.h" />
     <ClInclude Include="..\Importer\include\OBJ_Importer.h" />
     <ClInclude Include="..\Logger\include\Logger.h" />
     <ClInclude Include="..\MathLib\include\Mat3.h" />
