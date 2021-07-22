@@ -7,3 +7,6 @@
 [submodule "Importer"]
 	path = Importer
 	url = https://github.com/tylerHanf/Importer.git
+[submodule "OpenGL_Context"]
+	path = OpenGL_Context
+	url = https://github.com/tylerHanf/OpenGL_Context.git

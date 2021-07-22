@@ -34,6 +34,12 @@
     <Filter Include="Logger\external">
       <UniqueIdentifier>{91ad0acf-eaed-49e3-87c3-661206f614de}</UniqueIdentifier>
     </Filter>
+    <Filter Include="OpenGL_Context">
+      <UniqueIdentifier>{b54034f6-6117-4354-bee1-6945dd5f079b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="OpenGL_Context\include">
+      <UniqueIdentifier>{19401d2e-f033-4b8f-81ae-6a90feda1873}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="main.cpp">
@@ -63,6 +69,12 @@
     <ClCompile Include="..\Importer\src\OBJ_Importer.cpp">
       <Filter>Importer</Filter>
     </ClCompile>
+    <ClCompile Include="..\OpenGL_Context\src\OpenGL_Logger.cpp">
+      <Filter>OpenGL_Context</Filter>
+    </ClCompile>
+    <ClCompile Include="..\OpenGL_Context\src\ShaderLoader.cpp">
+      <Filter>OpenGL_Context</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Logger\include\Logger.h">
@@ -91,6 +103,12 @@
     </ClInclude>
     <ClInclude Include="..\Importer\external\stb\stb_image.h">
       <Filter>Logger\external</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenGL_Context\include\OpenGL_Logger.h">
+      <Filter>OpenGL_Context\include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\OpenGL_Context\include\ShaderLoader.h">
+      <Filter>OpenGL_Context\include</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

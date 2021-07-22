@@ -72,11 +72,11 @@
   <PropertyGroup Label="UserMacros" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <LinkIncremental>true</LinkIncremental>
-    <IncludePath>$(SolutionDir)ExternalLibs\GLFW\include\;$(SolutionDir)ExternalLibs\GLEW\include\;$(SolutionDir)MathLib\include\;$(SolutionDir)Logger\include\;$(SolutionDir)Importer\include\;$(SolutionDir)Importer\external\stb\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)ExternalLibs\GLFW\include\;$(SolutionDir)ExternalLibs\GLEW\include\;$(SolutionDir)MathLib\include\;$(SolutionDir)Logger\include\;$(SolutionDir)Importer\include\;$(SolutionDir)Importer\external\stb\;$(SolutionDir)OpenGL_Context\include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
     <LinkIncremental>false</LinkIncremental>
-    <IncludePath>$(SolutionDir)ExternalLibs\GLFW\include\;$(SolutionDir)ExternalLibs\GLEW\include\;$(SolutionDir)MathLib\include\;$(SolutionDir)Logger\include\;$(SolutionDir)Importer\include\;$(SolutionDir)Importer\external\stb\;$(IncludePath)</IncludePath>
+    <IncludePath>$(SolutionDir)ExternalLibs\GLFW\include\;$(SolutionDir)ExternalLibs\GLEW\include\;$(SolutionDir)MathLib\include\;$(SolutionDir)Logger\include\;$(SolutionDir)Importer\include\;$(SolutionDir)Importer\external\stb\;$(SolutionDir)OpenGL_Context\include\;$(IncludePath)</IncludePath>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
     <LinkIncremental>true</LinkIncremental>
@@ -151,6 +151,8 @@
     <ClCompile Include="..\MathLib\src\Vec2.cpp" />
     <ClCompile Include="..\MathLib\src\Vec3.cpp" />
     <ClCompile Include="..\MathLib\src\Vec4.cpp" />
+    <ClCompile Include="..\OpenGL_Context\src\OpenGL_Logger.cpp" />
+    <ClCompile Include="..\OpenGL_Context\src\ShaderLoader.cpp" />
     <ClCompile Include="main.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -163,6 +165,8 @@
     <ClInclude Include="..\MathLib\include\Vec2.h" />
     <ClInclude Include="..\MathLib\include\Vec3.h" />
     <ClInclude Include="..\MathLib\include\Vec4.h" />
+    <ClInclude Include="..\OpenGL_Context\include\OpenGL_Logger.h" />
+    <ClInclude Include="..\OpenGL_Context\include\ShaderLoader.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
