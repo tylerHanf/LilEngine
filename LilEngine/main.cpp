@@ -1,50 +1,42 @@
-#include "glew.h"
-#include "glfw3.h"
-
 #include <iostream>
 #include "Logger.h"
+#include "RenderContext.h"
 #include "OBJ_Importer.h"
+#include "DataManager.h"
+#include "Entity.h"
+#include "Vec3.h"
+#include "ShaderHandler.h"
 
 int main() {
 	Logger::InitLog("test.log");
-	Importer::OBJ_Importer Importer = Importer::OBJ_Importer("../../ObjModels/", "../../ObjModels/");
+	Importer::OBJ_Importer Importer = Importer::OBJ_Importer("../../ObjModels/",
+								 "../../ObjModels/");
 	Importer.ReadFile("test_texture.obj");
 
-	if (!glfwInit()) {
-		std::cout << "Failed to init GLFW\n";
-		return -1;
+
+	RenderContext context = RenderContext();
+	DataManager dataManager;
+	Window window = Window(400, 400, "main");
+	context.Init(&window);
+
+	// Load shaders
+	shaderHandler.MakeProgramFromSource("../Shaders/basic_vert.glsl",
+					    "../Shaders/basic_frag.glsl",
+					    "basic");
+	shaderHandler.MakeActive("basic");
+
+	// Load data into context
+	context.LoadImportedData(Importer, dataManager);
+	Entity test_entity(0, Vec3(0, 0, -2));
+	dataManager.AddEntity(test_entity);
+
+	while (!window.WindowClosed()) {
+		context.ClearBuffers();
+		window.SwapBuffers();
+		context.PollEvents();
+		dataManager.Update(context.GetTime());
+		context.Render();
 	}
-
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
-	glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
-
-	GLFWwindow* window = glfwCreateWindow(400, 400, "Main", NULL, NULL);
-
-	if (!window) {
-		std::cout << "Failed to make window\n";
-		return -1;
-	}
-
-	glfwMakeContextCurrent(window);
-
-	if (glewInit() != GLEW_OK) {
-		std::cout << "Failed to init GLEW\n";
-		return -1;
-	}
-
-	glfwSwapInterval(1);
-
-	while (!glfwWindowShouldClose(window)) {
-		glClear(GL_DEPTH_BUFFER_BIT);
-		glClear(GL_COLOR_BUFFER_BIT);
-
-
-		glfwSwapBuffers(window);
-		glfwPollEvents();
-	}
-
-	glfwDestroyWindow(window);
-	glfwTerminate();
 
 	return 0;
 }
