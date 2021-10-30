@@ -1,4 +1,5 @@
 #include "Entity.h"
+#include "RenderContext.h"
 
 Entity::Entity() {
 	Pos = Vec3();
@@ -19,6 +20,7 @@ Entity::Entity(int modelIdx, Vec3 pos) {
 	Rotation = Quaternion();
 	Show = true;
 	ModelIdx = modelIdx;
+	ShaderProgram* program;
 }
 
 Entity::Entity(int modelIdx, Vec3 pos, Quaternion rotation) {
@@ -30,4 +32,7 @@ Entity::Entity(int modelIdx, Vec3 pos, Quaternion rotation) {
 
 void Entity::Update(double time) {
 	return;
+}
+
+void Entity::Render(void) {
 }

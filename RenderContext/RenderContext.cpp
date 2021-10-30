@@ -49,42 +49,6 @@ void RenderContext::ClearBuffers(void) {
 #endif
 }
 
-void RenderContext::LoadImportedData(Importer::OBJ_Importer& importer, DataManager& dataManager) {
-	Importer::Data data = importer.InterleaveData();
-	Importer::Model model;
-	Importer::ModelComponent component;
-	Model model_DM;
-	ModelComponent component_DM;
-	OpenGL::BufferType type = OpenGL::NONE;
-	unsigned int* VBO_ID = NULL;
-	for (int i = 0; i<importer.Models.size(); ++i) {
-		model = importer.Models[i];
-		model_DM.numComponents = 0;
-		model_DM.components.clear();
-		for (int j = 0; j < model.numComponents; ++j) {
-			component = model.components[j];
-			OpenGL::BindVAO(buffers[component.type].VAO_ID);
-			buffers[component.type].VBO_IDs.push_back(0);
-			VBO_ID = &buffers[component.type].VBO_IDs.back();
-			OpenGL::GenVBOs(VBO_ID);
-			OpenGL::BindVBO(*VBO_ID);
-			OpenGL::BufferData(component.totalNumPoints*sizeof(float), 
-							   &data.buffers[component.type][component.interleaveDataIndex]);
-
-			component_DM.VBO_idx = *VBO_ID;
-			component_DM.Buffer_idx = int(type);
-			component_DM.Material_idx = component.materialIndex;
-			++model_DM.numComponents;
-			model_DM.components.push_back(component_DM);
-		}
-		dataManager.AddModel(model_DM);
-	}
-
-	for (int k = 0; k < importer.Materials.size(); ++k) {
-		dataManager.AddMaterial(importer.Materials[k]);
-	}
-}
-
 void RenderContext::Render(void) {
 	OpenGL::ClearGLBuffers();
 }
@@ -94,38 +58,42 @@ double RenderContext::GetTime(void) {
 	return OpenGL::GetTime();
 #endif
 }
+
 /*
-void RenderContext::LoadModelData(float* verts, size_t numVerts, BufferType buffType) {
+void RenderContext::LoadModel(Model* model, Importer::Data& data) {
 #ifdef OPENGL
-	unsigned int bufferSize = 0;
-	switch(buffType) {
-	case VERT:
-		bufferSize = buffers[VERT].IDs.size();
-		buffers[VERT].IDs.resize(bufferSize + 1);
-		OpenGL::GenVBOs(&buffers[VERT].IDs[bufferSize], 1);
-		break;
-
-	case TEXTURE:
-		bufferSize = buffers[VERT].IDs.size();
-		buffers[VERT].IDs.resize(bufferSize + 1);
-		OpenGL::GenVBOs(&buffers[VERT].IDs[bufferSize], 1);
-		break;
-
-	case NORMAL:
-		break;
-
-	case VERT_TEXTURE:
-		break;
-
-	case VERT_NORMAL:
-		break;
-
-	case VERT_TEXTURE_NORMAL:
-		break;
-
-	default:
-		break;
-	}
+    OpenGL::BufferType type = OpenGL::NONE;
+    unsigned int VBO_ID = 0;
+    ModelComponent* component;
+    for (int i = 0; i < model->numComponents; ++i) {
+	    component = &model->components[i];
+	    OpenGL::BindVAO(buffers[component->Buffer_idx].VAO_ID);
+	    OpenGL::GenVBOs(&VBO_ID);
+	    OpenGL::BindVBO(VBO_ID);
+	    OpenGL::BufferData(component->numPoints*sizeof(float),
+			       &data.buffers[component->Buffer_idx][component->interleaveDataIndex]);
+	    buffers[component->Buffer_idx].VBO_IDs.push_back(VBO_ID);
+    }
 #endif
 }
 */
+
+unsigned int RenderContext::LoadData(float* data, 
+									 int data_size, 
+	                                 OpenGL::BufferType dataType, 
+	                                 unsigned int* VBO) 
+{
+#ifdef OPENGL
+	unsigned int VBO_ID = 0;
+	unsigned int VAO = buffers[dataType].VAO_ID;
+	OpenGL::BindVAO(VAO);
+	OpenGL::GenVBOs(&VBO_ID);
+	OpenGL::BindVBO(VBO_ID);
+	OpenGL::BufferData(data_size, data);
+	OpenGL::BindVBO(0);
+	OpenGL::BindVAO(0);
+	buffers[dataType].VBO_IDs.push_back(VBO_ID);
+	*VBO = VBO_ID;
+	return VAO;
+#endif
+}

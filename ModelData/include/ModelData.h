@@ -4,9 +4,11 @@
 #include "Vec3.h"
 
 struct ModelComponent {
-	int Buffer_idx;
-	int VBO_idx;
-	int Material_idx;
+	unsigned int Buffer_idx;
+	unsigned int VBO_idx;
+	unsigned int Material_idx;
+	unsigned int Shader_idx;
+	unsigned int NumPoints; // Total number of floats in the component
 };
 
 struct Model {
